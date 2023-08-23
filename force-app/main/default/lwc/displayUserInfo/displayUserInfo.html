@@ -1,0 +1,23 @@
+<template>
+   <lightning-card  variant="Narrow"  title="Related User Info" icon-name="standard:user">
+       <div class="slds-box slds-m-around_small">
+           <template if:true={isExist}>
+          <!-- <p><b>First Name :</b> {objUserInfo.FirstName}</p>
+           <p><b>Last Name :</b> {objUserInfo.LastName}</p>
+           <p><b>Email :</b> {objUserInfo.Email}</p>
+           <p><b>Phone :</b> {objUserInfo.Phone}</p>
+           <p><b>Profile :</b> {objUserInfo.ProfileName}</p>-->
+           <div>
+               <lightning-datatable
+                       key-field="id"
+                       data={objUserInfo}
+                       columns={columns} >
+               </lightning-datatable>
+           </div>
+       </template>
+       <template if:false={isExist}>
+           <p><b>{messageString}</b></p>
+       </template>
+       </div>
+   </lightning-card>
+</template>

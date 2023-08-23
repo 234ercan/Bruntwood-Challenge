@@ -1,0 +1,37 @@
+<template>
+    <lightning-card icon-name="standard:user" variant="base" >
+      <div slot="title">
+          User Details
+      </div>
+      <template if:true={showData}>
+         <div >
+         <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+            <thead>
+               <tr>
+                  <th scope="col">UserId</th>
+                  <th scope="col">Username</th>
+                  <th scope="col">First Name</th>
+                  <th scope="col">Last Name</th>
+                  <th scope="col">Email</th>
+               </tr>
+            </thead>
+            <tbody>
+               <template for:each={data} for:item="user">
+                  <tr key={user.Id}>
+                     <td>{user.userId}</td>
+                     <td>{user.userName}</td>
+                     <td>{user.firstName}</td>
+                     <td>{user.lastName}</td>
+                     <td>{user.email}</td>
+                  </tr>
+               </template>
+            </tbody>
+         </table>
+         </div>
+      </template>
+        <div class="error" >
+         <p style="padding-left: 20px;"><b>{Message}</b> </p>
+        </div>
+      
+    </lightning-card>
+</template>

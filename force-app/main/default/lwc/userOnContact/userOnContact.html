@@ -1,0 +1,24 @@
+<template>
+   <lightning-card icon-name="standard:user" variant="Narrow">
+     <div slot="title">
+       <h1>Related user details</h1>  
+     </div>
+     <div slot="actions">
+   
+     </div>
+      <div class="slds-box slds-m-around_medium">
+         <div if:true={userFound}>
+            <p><b>UserId : </b> {userInfo.userId}</p>   
+            <p><b>Username : </b> {userInfo.username}</p>
+            <p><b>First Name : </b> {userInfo.firstName}</p>
+            <p><b>Last Name : </b> {userInfo.lastName}</p>
+            <p><b>Email : </b>{userInfo.email}</p>
+         </div>
+         <div if:false={userFound}>
+            <p if:true={contactHasNoEmail}>The Contact does not have an email address.</p>
+            <p if:true={userNotFound}>User not found based on Contact's email.</p>
+         </div>
+       
+     </div>
+   </lightning-card> 
+</template>
